@@ -20,8 +20,9 @@ function App() {
         <section className="hero">
           <h2 className="hero-title">Welcome to Toast App</h2>
           <p className="hero-description">
-            The ultimate platform for toasting competitions and community engagement.
-            Join us to celebrate the art of making perfect toast!
+            Where unlocked laptops meet their fate.
+            If you’ve left your machine unattended and came back to a passionate ode to toast… congrats, you’ve been toasted.
+            Track the victims. Celebrate the chaos. Stay toasty.
           </p>
           <div className="hero-buttons">
             <button className="btn btn-primary">View Participants</button>
