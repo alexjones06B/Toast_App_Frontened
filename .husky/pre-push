@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ $protected_branch = $current_branch ]; then
+    echo "🚫 Direct push to main branch is not allowed!"
+    echo "Please create a feature branch and open a pull request."
+    echo "To create a new branch: git checkout -b feature/your-feature-name"
+    exit 1
+fi
+
+# Run Biome checks before any push
+echo "🔍 Running Biome checks before push..."
+npm run ci
+
+if [ $? -ne 0 ]; then
+    echo "❌ Biome checks failed. Please fix the issues before pushing."
+    echo "Run 'npm run check:fix' to automatically fix some issues."
+    exit 1
+fi
+
+echo "✅ All checks passed! Proceeding with push..."

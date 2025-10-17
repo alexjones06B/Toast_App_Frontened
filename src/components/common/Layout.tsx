@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Navigation from './Navigation';
+import type React from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
