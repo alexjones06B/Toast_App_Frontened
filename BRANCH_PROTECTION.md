@@ -12,8 +12,7 @@ To fully protect your main branch, you should configure the following settings i
 - ✅ **Require status checks to pass before merging**
 - ✅ **Require branches to be up to date before merging**
 - Select the following required checks:
-  - `code-quality (18.x)`
-  - `code-quality (20.x)` 
+  - `code-quality`
   - `security`
 
 ### Pull Request Requirements

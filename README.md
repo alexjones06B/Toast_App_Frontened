@@ -67,7 +67,7 @@ This project uses [Biome](https://biomejs.dev/) for fast and comprehensive code 
 
 #### GitHub Actions CI/CD
 - Runs on all pushes and pull requests to `main` and `develop`
-- Tests multiple Node.js versions (18.x, 20.x)
+- Uses Node.js 20.x for consistent environment
 - Validates TypeScript compilation
 - Runs security audits
 - Ensures consistent code formatting
