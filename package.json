@@ -14,7 +14,7 @@
     "check:fix": "biome check . --write",
     "ci": "biome ci .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^19.1.1",
