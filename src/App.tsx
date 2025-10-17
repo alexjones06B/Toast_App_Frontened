@@ -1,19 +1,19 @@
-import './App.css'
-import { useState } from 'react'
-import Homepage from './pages/Homepage'
-import Participants from './pages/Participants'
-import Leaderboard from './pages/Leaderboard'
+import "./App.css";
+import { useState } from "react";
+import Homepage from "./pages/Homepage";
+import Leaderboard from "./pages/Leaderboard";
+import Participants from "./pages/Participants";
 
-type PageType = 'home' | 'participants' | 'leaderboard';
+type PageType = "home" | "participants" | "leaderboard";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const [currentPage, setCurrentPage] = useState<PageType>("home");
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'participants':
+      case "participants":
         return <Participants />;
-      case 'leaderboard':
+      case "leaderboard":
         return <Leaderboard />;
       default:
         return <Homepage onNavigate={setCurrentPage} />;
@@ -25,40 +25,43 @@ function App() {
       <header className="header">
         <div className="header-content">
           <h1 className="logo">🍞 Toast App</h1>
-          <button className="new-toast-btn">New Toast</button>
+          <button type="button" className="new-toast-btn">
+            New Toast
+          </button>
         </div>
       </header>
 
       <nav className="navigation">
-        <button 
-          className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
-          onClick={() => setCurrentPage('home')}
+        <button
+          type="button"
+          className={`nav-link ${currentPage === "home" ? "active" : ""}`}
+          onClick={() => setCurrentPage("home")}
         >
           Home
         </button>
-        <button 
-          className={`nav-link ${currentPage === 'leaderboard' ? 'active' : ''}`}
-          onClick={() => setCurrentPage('leaderboard')}
+        <button
+          type="button"
+          className={`nav-link ${currentPage === "leaderboard" ? "active" : ""}`}
+          onClick={() => setCurrentPage("leaderboard")}
         >
           Leaderboard
         </button>
-        <button 
-          className={`nav-link ${currentPage === 'participants' ? 'active' : ''}`}
-          onClick={() => setCurrentPage('participants')}
+        <button
+          type="button"
+          className={`nav-link ${currentPage === "participants" ? "active" : ""}`}
+          onClick={() => setCurrentPage("participants")}
         >
           Participants
         </button>
       </nav>
 
-      <main className="main-content">
-        {renderPage()}
-      </main>
+      <main className="main-content">{renderPage()}</main>
 
       <footer className="footer">
         <p>© 2025 Toast App. All rights reserved.</p>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

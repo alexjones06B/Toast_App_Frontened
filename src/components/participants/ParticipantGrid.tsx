@@ -1,11 +1,7 @@
-import React from 'react';
+import type React from "react";
 
 const ParticipantGrid: React.FC = () => {
-  return (
-    <div>
-      {/* ParticipantGrid component - to be implemented */}
-    </div>
-  );
+  return <div>{/* ParticipantGrid component - to be implemented */}</div>;
 };
 
 export default ParticipantGrid;

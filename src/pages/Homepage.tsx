@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from "react";
 
-type PageType = 'home' | 'participants' | 'leaderboard';
+type PageType = "home" | "participants" | "leaderboard";
 
 interface HomepageProps {
   onNavigate?: (page: PageType) => void;
@@ -13,18 +13,21 @@ const Homepage: React.FC<HomepageProps> = ({ onNavigate }) => {
         <h2 className="hero-title">Welcome to Toast App</h2>
         <p className="hero-description">
           Track who's been toasted in your office! When someone leaves their laptop unlocked,
-          colleagues can send toast messages from their account. Keep score of who's the most careless with their security!
+          colleagues can send toast messages from their account. Keep score of who's the most
+          careless with their security!
         </p>
         <div className="hero-buttons">
-          <button 
-            className="btn btn-primary" 
-            onClick={() => onNavigate?.('participants')}
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => onNavigate?.("participants")}
           >
             View Participants
           </button>
-          <button 
+          <button
+            type="button"
             className="btn btn-secondary"
-            onClick={() => onNavigate?.('leaderboard')}
+            onClick={() => onNavigate?.("leaderboard")}
           >
             See Leaderboard
           </button>
@@ -47,7 +50,9 @@ const Homepage: React.FC<HomepageProps> = ({ onNavigate }) => {
             <div className="stat-label">Toasts Sent</div>
           </div>
           <div className="stat-card">
-            <div className="stat-value" style={{ fontSize: '1.5rem' }}>Mike Johnson</div>
+            <div className="stat-value" style={{ fontSize: "1.5rem" }}>
+              Mike Johnson
+            </div>
             <div className="stat-label">Most Toasted</div>
           </div>
         </div>
