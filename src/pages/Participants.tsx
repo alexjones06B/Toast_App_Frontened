@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from "react";
 
 // Mock data for participants
 const mockParticipants = [

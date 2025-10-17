@@ -1,11 +1,7 @@
-import React from 'react';
+import type React from "react";
 
 const FilterControls: React.FC = () => {
-  return (
-    <div>
-      {/* FilterControls component - to be implemented */}
-    </div>
-  );
+  return <div>{/* FilterControls component - to be implemented */}</div>;
 };
 
 export default FilterControls;
