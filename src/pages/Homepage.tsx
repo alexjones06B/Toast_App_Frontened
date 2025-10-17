@@ -1,11 +1,7 @@
-import React from 'react';
+import type React from "react";
 
 const Homepage: React.FC = () => {
-  return (
-    <div>
-      {/* Homepage - to be implemented */}
-    </div>
-  );
+  return <div>{/* Homepage - to be implemented */}</div>;
 };
 
 export default Homepage;
