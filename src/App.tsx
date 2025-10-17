@@ -1,20 +1,12 @@
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import './App.css'
+import Origin from './pages/Origin'
+import Homepage from './pages/Homepage'
+import Leaderboard from './pages/Leaderboard'
+import Participants from './pages/Participants'
 
 function App() {
-  return (
-    <div className="app">
-      <header className="header">
-        <div className="header-content">
-          <h1 className="logo">🍞 Toast App</h1>
-          <button className="new-toast-btn">New Toast</button>
-        </div>
-      </header>
-
-      <nav className="navigation">
-        <a href="/" className="nav-link active">Home</a>
-        <a href="/leaderboard" className="nav-link">Leaderboard</a>
-        <a href="/participants" className="nav-link">Participants</a>
-      </nav>
+  const location = useLocation()
 
       <main className="main-content">
         <section className="hero">
@@ -30,61 +22,89 @@ function App() {
           </div>
         </section>
 
-        <section className="quick-stats">
-          <h3 className="section-title">Quick Stats</h3>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-value">24</div>
-              <div className="stat-label">Total Participants</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">156</div>
-              <div className="stat-label">Total Toasts</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">4.5</div>
-              <div className="stat-label">Average Rating</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">🏆</div>
-              <div className="stat-label">Top Toaster</div>
-            </div>
+      {/* Navigation with DaisyUI Tabs */}
+      <div className="bg-base-200 shadow-toast sticky top-16 z-40">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="tabs tabs-bordered">
+            <Link 
+              to="/" 
+              className={`tab tab-bordered pb-4 pt-4 ${
+                location.pathname === '/' 
+                  ? 'tab-active text-neutral border-neutral' 
+                  : 'text-base-content/70 hover:text-neutral'
+              }`}
+            >
+              Origin
+            </Link>
+            <Link 
+              to="/home" 
+              className={`tab tab-bordered pb-4 pt-4 ${
+                location.pathname === '/home' 
+                  ? 'tab-active text-neutral border-neutral' 
+                  : 'text-base-content/70 hover:text-neutral'
+              }`}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/leaderboard" 
+              className={`tab tab-bordered pb-4 pt-4 ${
+                location.pathname === '/leaderboard' 
+                  ? 'tab-active text-neutral border-neutral' 
+                  : 'text-base-content/70 hover:text-neutral'
+              }`}
+            >
+              Leaderboard
+            </Link>
+            <Link 
+              to="/participants" 
+              className={`tab tab-bordered pb-4 pt-4 ${
+                location.pathname === '/participants' 
+                  ? 'tab-active text-neutral border-neutral' 
+                  : 'text-base-content/70 hover:text-neutral'
+              }`}
+            >
+              Participants
+            </Link>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <section className="recent-toasts">
-          <h3 className="section-title">Recent Toasts</h3>
-          <div className="toasts-list">
-            <div className="toast-item">
-              <span className="toast-emoji">🍞</span>
-              <div className="toast-info">
-                <p className="toast-participant">John Doe</p>
-                <p className="toast-detail">Perfect golden brown • 5.0 ⭐</p>
-              </div>
-            </div>
-            <div className="toast-item">
-              <span className="toast-emoji">🍞</span>
-              <div className="toast-info">
-                <p className="toast-participant">Jane Smith</p>
-                <p className="toast-detail">Crispy edges • 4.8 ⭐</p>
-              </div>
-            </div>
-            <div className="toast-item">
-              <span className="toast-emoji">🍞</span>
-              <div className="toast-info">
-                <p className="toast-participant">Mike Johnson</p>
-                <p className="toast-detail">Even toasting • 4.6 ⭐</p>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Main Content */}
+      <main className="flex-1 max-w-7xl mx-auto w-full px-8 py-12">
+        {children}
       </main>
 
-      <footer className="footer">
-        <p>© 2025 Toast App. All rights reserved.</p>
+      {/* Footer with DaisyUI */}
+      <footer className="footer footer-center p-8 bg-gradient-to-r from-primary to-secondary text-neutral">
+        <aside>
+          <p>© 2025 Toast App. All rights reserved.</p>
+        </aside>
       </footer>
     </div>
+  )
+
+  return (
+    <Routes>
+      <Route path="/" element={<Origin />} />
+      <Route path="/home" element={
+        <Layout>
+          <Homepage />
+        </Layout>
+      } />
+      <Route path="/leaderboard" element={
+        <Layout>
+          <Leaderboard />
+        </Layout>
+      } />
+      <Route path="/participants" element={
+        <Layout>
+          <Participants />
+        </Layout>
+      } />
+    </Routes>
   )
 }
 
 export default App
+
