@@ -25,17 +25,33 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         
-    - name: Clear npm cache
-      run: npm cache clean --force
+    - name: Debug - Check Node and npm versions
+      run: |
+        node --version
+        npm --version
+        
+    - name: Debug - List package.json scripts
+      run: cat package.json | grep -A 10 '"scripts"'
         
     - name: Install dependencies
-      run: npm ci --no-optional
+      run: |
+        npm ci
+        echo "Dependencies installed successfully"
+      
+    - name: Debug - Check installed packages
+      run: npm list --depth=0
       
     - name: Run TypeScript compiler
-      run: npm run build
+      run: |
+        echo "Running TypeScript build..."
+        npm run build
+        echo "Build completed successfully"
       
     - name: Run Biome checks
-      run: npm run ci
+      run: |
+        echo "Running Biome checks..."
+        npm run ci
+        echo "Biome checks completed successfully"
 
   security:
     runs-on: ubuntu-latest
@@ -50,9 +66,10 @@ jobs:
         cache: 'npm'
         
     - name: Install dependencies
-      run: npm ci --no-optional
+      run: npm ci
       
     - name: Run security audit
       run: |
-        # Allow moderate vulnerabilities for now, fail on high/critical
-        npm audit --audit-level=high || echo "Security audit completed with warnings"
+        echo "Running security audit..."
+        npm audit --audit-level=moderate || echo "Audit completed with warnings"
+        echo "Security check completed"
