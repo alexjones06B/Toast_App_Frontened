@@ -1,6 +1,25 @@
 import './App.css'
+import { useState } from 'react'
+import Homepage from './pages/Homepage'
+import Participants from './pages/Participants'
+import Leaderboard from './pages/Leaderboard'
+
+type PageType = 'home' | 'participants' | 'leaderboard';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState<PageType>('home');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'participants':
+        return <Participants />;
+      case 'leaderboard':
+        return <Leaderboard />;
+      default:
+        return <Homepage onNavigate={setCurrentPage} />;
+    }
+  };
+
   return (
     <div className="app">
       <header className="header">
@@ -11,72 +30,28 @@ function App() {
       </header>
 
       <nav className="navigation">
-        <a href="/" className="nav-link active">Home</a>
-        <a href="/leaderboard" className="nav-link">Leaderboard</a>
-        <a href="/participants" className="nav-link">Participants</a>
+        <button 
+          className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
+          onClick={() => setCurrentPage('home')}
+        >
+          Home
+        </button>
+        <button 
+          className={`nav-link ${currentPage === 'leaderboard' ? 'active' : ''}`}
+          onClick={() => setCurrentPage('leaderboard')}
+        >
+          Leaderboard
+        </button>
+        <button 
+          className={`nav-link ${currentPage === 'participants' ? 'active' : ''}`}
+          onClick={() => setCurrentPage('participants')}
+        >
+          Participants
+        </button>
       </nav>
 
       <main className="main-content">
-        <section className="hero">
-          <h2 className="hero-title">Welcome to Toast App</h2>
-          <p className="hero-description">
-            The ultimate platform for toasting competitions and community engagement.
-            Join us to celebrate the art of making perfect toast!
-          </p>
-          <div className="hero-buttons">
-            <button className="btn btn-primary">View Participants</button>
-            <button className="btn btn-secondary">See Leaderboard</button>
-          </div>
-        </section>
-
-        <section className="quick-stats">
-          <h3 className="section-title">Quick Stats</h3>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-value">24</div>
-              <div className="stat-label">Total Participants</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">156</div>
-              <div className="stat-label">Total Toasts</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">4.5</div>
-              <div className="stat-label">Average Rating</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">🏆</div>
-              <div className="stat-label">Top Toaster</div>
-            </div>
-          </div>
-        </section>
-
-        <section className="recent-toasts">
-          <h3 className="section-title">Recent Toasts</h3>
-          <div className="toasts-list">
-            <div className="toast-item">
-              <span className="toast-emoji">🍞</span>
-              <div className="toast-info">
-                <p className="toast-participant">John Doe</p>
-                <p className="toast-detail">Perfect golden brown • 5.0 ⭐</p>
-              </div>
-            </div>
-            <div className="toast-item">
-              <span className="toast-emoji">🍞</span>
-              <div className="toast-info">
-                <p className="toast-participant">Jane Smith</p>
-                <p className="toast-detail">Crispy edges • 4.8 ⭐</p>
-              </div>
-            </div>
-            <div className="toast-item">
-              <span className="toast-emoji">🍞</span>
-              <div className="toast-info">
-                <p className="toast-participant">Mike Johnson</p>
-                <p className="toast-detail">Even toasting • 4.6 ⭐</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {renderPage()}
       </main>
 
       <footer className="footer">
