@@ -8,22 +8,19 @@ import Participants from './pages/Participants'
 function App() {
   const location = useLocation()
 
-  // Layout component with DaisyUI
-  const Layout = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen flex flex-col bg-base-100" data-theme="toasttheme">
-      {/* Header with DaisyUI Navbar */}
-      <div className="navbar bg-gradient-to-r from-primary to-secondary shadow-toast sticky top-0 z-50">
-        <div className="navbar-start">
-          <Link to="/" className="btn btn-ghost text-xl font-bold text-neutral">
-            🍞 Toast App
-          </Link>
-        </div>
-        <div className="navbar-end">
-          <button className="btn btn-neutral shadow-toast hover:shadow-toast-hover hover:-translate-y-0.5 transition-all">
-            New Toast
-          </button>
-        </div>
-      </div>
+      <main className="main-content">
+        <section className="hero">
+          <h2 className="hero-title">Welcome to Toast App</h2>
+          <p className="hero-description">
+            Where unlocked laptops meet their fate.
+            If you’ve left your machine unattended and came back to a passionate ode to toast… congrats, you’ve been toasted.
+            Track the victims. Celebrate the chaos. Stay toasty.
+          </p>
+          <div className="hero-buttons">
+            <button className="btn btn-primary">View Participants</button>
+            <button className="btn btn-secondary">See Leaderboard</button>
+          </div>
+        </section>
 
       {/* Navigation with DaisyUI Tabs */}
       <div className="bg-base-200 shadow-toast sticky top-16 z-40">
