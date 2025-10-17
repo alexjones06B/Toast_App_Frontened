@@ -1,11 +1,7 @@
-import React from 'react';
+import type React from "react";
 
 const Navigation: React.FC = () => {
-  return (
-    <div>
-      {/* Navigation component - to be implemented */}
-    </div>
-  );
+  return <div>{/* Navigation component - to be implemented */}</div>;
 };
 
 export default Navigation;
