@@ -4,26 +4,19 @@ import Origin from './pages/Origin'
 import Homepage from './pages/Homepage'
 import Leaderboard from './pages/Leaderboard'
 import Participants from './pages/Participants'
+import type { ReactNode } from 'react'
 
-function App() {
+interface LayoutProps {
+  children: ReactNode
+}
+
+function Layout({ children }: LayoutProps) {
   const location = useLocation()
 
-      <main className="main-content">
-        <section className="hero">
-          <h2 className="hero-title">Welcome to Toast App</h2>
-          <p className="hero-description">
-            Where unlocked laptops meet their fate.
-            If you’ve left your machine unattended and came back to a passionate ode to toast… congrats, you’ve been toasted.
-            Track the victims. Celebrate the chaos. Stay toasty.
-          </p>
-          <div className="hero-buttons">
-            <button className="btn btn-primary">View Participants</button>
-            <button className="btn btn-secondary">See Leaderboard</button>
-          </div>
-        </section>
-
+  return (
+    <div className="min-h-screen flex flex-col bg-base-100">
       {/* Navigation with DaisyUI Tabs */}
-      <div className="bg-base-200 shadow-toast sticky top-16 z-40">
+      <div className="bg-base-200 shadow-toast sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-8">
           <div className="tabs tabs-bordered">
             <Link 
@@ -83,7 +76,9 @@ function App() {
       </footer>
     </div>
   )
+}
 
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Origin />} />
@@ -107,4 +102,3 @@ function App() {
 }
 
 export default App
-
