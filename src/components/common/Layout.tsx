@@ -1,6 +1,6 @@
-import type React from 'react';
-import Header from './Header';
-import Navigation from './Navigation';
+import type React from "react";
+import Header from "./Header";
+import Navigation from "./Navigation";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,9 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Navigation />
 
       {/* Main Content */}
-      <main className="flex-1 max-w-7xl mx-auto w-full px-8 py-12">
-        {children}
-      </main>
+      <main className="flex-1 max-w-7xl mx-auto w-full px-8 py-12">{children}</main>
 
       {/* Footer */}
       <footer className="footer footer-center p-8 bg-gradient-to-r from-primary to-secondary text-neutral">

@@ -1,7 +1,7 @@
-import React from 'react';
-import Hero from '../components/homepage/Hero';
-import QuickStats from '../components/homepage/QuickStats';
-import RecentToasts from '../components/homepage/RecentToasts';
+import type React from "react";
+import Hero from "../components/homepage/Hero";
+import QuickStats from "../components/homepage/QuickStats";
+import RecentToasts from "../components/homepage/RecentToasts";
 
 const Homepage: React.FC = () => {
   return (

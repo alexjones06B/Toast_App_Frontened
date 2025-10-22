@@ -261,28 +261,28 @@
   .origin-title {
     font-size: 2.5rem;
   }
-  
+
   .origin-description {
     font-size: 1.1rem;
   }
-  
+
   .origin-nav-buttons {
     grid-template-columns: 1fr;
   }
-  
+
   .origin-hero-text {
     padding: 2rem;
   }
-  
+
   .origin-cta-card {
     padding: 2rem;
   }
-  
+
   .origin-cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .origin-btn {
     width: 100%;
     max-width: 250px;

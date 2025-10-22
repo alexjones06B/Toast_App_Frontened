@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import type React from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
@@ -10,7 +10,10 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-neutral shadow-toast hover:shadow-toast-hover hover:-translate-y-0.5 transition-all">
+        <button
+          type="button"
+          className="btn btn-neutral shadow-toast hover:shadow-toast-hover hover:-translate-y-0.5 transition-all"
+        >
           New Toast
         </button>
       </div>
