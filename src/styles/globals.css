@@ -1,15 +1,2 @@
-/* Global styles for Toast App */
-
-:root {
-  --primary-color: #ff6b35;
-  --secondary-color: #004e89;
-  --accent-color: #ffd23f;
-  --text-primary: #333;
-  --text-secondary: #666;
-  --background: #f8f9fa;
-  --white: #ffffff;
-  --border: #e1e5e9;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* To be expanded with full styling implementation */
+/* Global styles for Toast App - Consolidated into index.css */
+/* This file is now used for any additional global overrides */

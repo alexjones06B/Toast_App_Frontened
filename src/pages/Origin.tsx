@@ -1,127 +1,145 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Origin.css';
+import type React from "react";
+import { Link } from "react-router-dom";
 
 const Origin: React.FC = () => {
   return (
-    <div className="origin-page" data-theme="toasttheme">
+    <div className="w-full -mx-8 -my-12 animate-fade-in">
       {/* Hero Section */}
-      <div className="origin-hero">
-        <div className="origin-hero-content">
-          <div className="origin-hero-text">
-            <h1 className="origin-title">
-              🍞 Welcome to Toast Central
+      <section className="min-h-[80vh] bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-center px-8 py-20">
+        <div className="max-w-6xl w-full">
+          <div className="bg-white/95 backdrop-blur-lg rounded-3xl p-12 lg:p-20 shadow-2xl border border-white/20 animate-scale-in">
+            <div className="animate-bounce-slow text-8xl mb-8">🍞</div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-neutral mb-8 leading-tight gradient-text-full">
+              Welcome to Toast Central
             </h1>
-            <p className="origin-description">
-              The ultimate hub for all your toasting adventures! Navigate to explore leaderboards, participants, and your home base.
+            <p className="text-xl sm:text-2xl lg:text-3xl text-neutral/80 mb-12 leading-relaxed max-w-4xl mx-auto">
+              The ultimate hub for all your toasting adventures! Navigate to explore leaderboards,
+              participants, and your home base.
             </p>
-            
+
             {/* Navigation Buttons */}
-            <div className="origin-nav-buttons">
-              <Link to="/home" className="origin-btn origin-btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" className="origin-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                Home
-              </Link>
-              
-              <Link to="/leaderboard" className="origin-btn origin-btn-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" className="origin-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-                Leaderboard
-              </Link>
-              
-              <Link to="/participants" className="origin-btn origin-btn-accent">
-                <svg xmlns="http://www.w3.org/2000/svg" className="origin-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-                </svg>
-                Participants
-              </Link>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-slide-in-up animate-delay-200">
+              {[
+                { to: "/home", label: "Home", icon: "🏠", variant: "btn-neutral" },
+                { to: "/leaderboard", label: "Leaderboard", icon: "🏆", variant: "btn-primary" },
+                {
+                  to: "/participants",
+                  label: "Participants",
+                  icon: "👥",
+                  variant: "btn-secondary",
+                },
+              ].map((item, index) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`btn ${item.variant} btn-lg gap-3 shadow-toast hover:shadow-toast-hover hover:-translate-y-2 transition-all duration-300 group`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <span className="text-2xl group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </span>
+                  <span className="text-lg font-semibold">{item.label}</span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Information Section About Toasting */}
-      <div className="origin-content">
-        <div className="origin-section-header">
-          <h2 className="origin-section-title">What is "Toasting"? 🔒</h2>
-          <p className="origin-section-subtitle">
-            A playful security reminder in the form of a harmless prank!
-          </p>
-        </div>
-
-        {/* Cards explaining toasting */}
-        <div className="origin-cards-grid">
-          <div className="origin-card">
-            <div className="origin-card-header">
-              <svg xmlns="http://www.w3.org/2000/svg" className="origin-card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a2 2 0 00-2-2H8a2 2 0 00-2 2v3m8 0V9a2 2 0 00-2-2H8a2 2 0 00-2 2v0" />
-              </svg>
-              <h3 className="origin-card-title">The Concept</h3>
-            </div>
-            <p className="origin-card-text">
-              When someone leaves their laptop unlocked and unattended, it's an opportunity for a friendly security reminder through "toasting" - a harmless action that highlights the importance of locking your device.
-            </p>
-          </div>
-
-          <div className="origin-card">
-            <div className="origin-card-header">
-              <svg xmlns="http://www.w3.org/2000/svg" className="origin-card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-              <h3 className="origin-card-title">Security Awareness</h3>
-            </div>
-            <p className="origin-card-text">
-              It's a fun way to promote cybersecurity best practices in the workplace. A gentle reminder that unlocked devices can be vulnerable to more serious security threats.
-            </p>
-          </div>
-
-          <div className="origin-card">
-            <div className="origin-card-header">
-              <svg xmlns="http://www.w3.org/2000/svg" className="origin-card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              <h3 className="origin-card-title">Community Fun</h3>
-            </div>
-            <p className="origin-card-text">
-              Our toast app tracks these playful security reminders, creating a leaderboard of the most security-conscious (and sometimes forgetful) team members!
-            </p>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="origin-cta">
-          <div className="origin-cta-card">
-            <h2 className="origin-cta-title">
-              Ready to Start Toasting? 🚀
+      <section className="section-padding-lg bg-gradient-to-b from-base-200 to-base-100">
+        <div className="content-wrapper">
+          <div className="text-center mb-20 animate-slide-in-up">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text-primary mb-6">
+              What is "Toasting"?
             </h2>
-            <p className="origin-cta-text">
-              Join our community and help promote better security practices through friendly pranks and awareness!
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <span className="text-4xl animate-bounce-slow">🔒</span>
+              <span className="text-xl text-neutral/60">Security awareness made fun</span>
+            </div>
+            <p className="text-xl sm:text-2xl text-neutral/80 max-w-3xl mx-auto leading-relaxed">
+              A playful security reminder in the form of a harmless prank!
             </p>
-            <div className="origin-cta-buttons">
-              <Link to="/participants" className="origin-btn origin-btn-primary">
-                View Participants
-              </Link>
-              <Link to="/leaderboard" className="origin-btn origin-btn-outline">
-                Check Leaderboard
-              </Link>
+          </div>
+
+          {/* Cards explaining toasting */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            {[
+              {
+                icon: "🔐",
+                title: "The Concept",
+                description:
+                  'When someone leaves their laptop unlocked and unattended, it\'s an opportunity for a friendly security reminder through "toasting" - a harmless action that highlights the importance of locking your device.',
+                gradient: "from-primary to-secondary",
+              },
+              {
+                icon: "💡",
+                title: "Security Awareness",
+                description:
+                  "It's a fun way to promote cybersecurity best practices in the workplace. A gentle reminder that unlocked devices can be vulnerable to more serious security threats.",
+                gradient: "from-secondary to-accent",
+              },
+              {
+                icon: "🎉",
+                title: "Community Fun",
+                description:
+                  "Our toast app tracks these playful security reminders, creating a leaderboard of the most security-conscious (and sometimes forgetful) team members!",
+                gradient: "from-accent to-primary",
+              },
+            ].map((card, index) => (
+              <div
+                key={card.title}
+                className="content-area hover-lift animate-slide-in-up group"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="text-center">
+                  <div className="flex justify-center mb-8">
+                    <div
+                      className={`p-6 bg-gradient-to-br ${card.gradient} rounded-2xl text-white text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 animate-float`}
+                    >
+                      {card.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-neutral mb-6 group-hover:gradient-text-primary transition-all duration-300">
+                    {card.title}
+                  </h3>
+                  <p className="text-neutral/80 leading-relaxed text-lg">{card.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="flex justify-center animate-scale-in animate-delay-400">
+            <div className="content-area bg-gradient-to-br from-primary to-secondary text-white max-w-5xl w-full text-center">
+              <div className="animate-float text-6xl mb-8">🚀</div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
+                Ready to Start Toasting?
+              </h2>
+              <p className="text-xl sm:text-2xl lg:text-3xl mb-12 leading-relaxed opacity-90">
+                Join our community and help promote better security practices through friendly
+                pranks and awareness!
+              </p>
+              <div className="flex gap-6 justify-center flex-wrap">
+                <Link
+                  to="/participants"
+                  className="btn btn-neutral btn-lg text-xl px-10 py-4 shadow-toast hover:shadow-toast-hover hover:-translate-y-2 transition-all duration-300 group"
+                >
+                  <span className="group-hover:scale-110 transition-transform">👥</span>
+                  View Participants
+                </Link>
+                <Link
+                  to="/leaderboard"
+                  className="btn btn-outline btn-lg text-xl px-10 py-4 shadow-toast hover:shadow-toast-hover hover:-translate-y-2 transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-neutral group"
+                >
+                  <span className="group-hover:scale-110 transition-transform">🏆</span>
+                  Check Leaderboard
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Footer section */}
-      <footer className="origin-footer">
-        <div className="origin-footer-content">
-          <div className="origin-footer-icon">🍞</div>
-          <p className="origin-footer-title">
-            Toast App - Security Through Fun
-          </p>
-          <p className="origin-footer-subtitle">Remember: Always lock your screen when stepping away!</p>
-        </div>
-      </footer>
+      </section>
     </div>
   );
 };
