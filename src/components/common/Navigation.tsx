@@ -8,7 +8,7 @@ const Navigation: React.FC = () => {
     { path: "/", label: "Origin", icon: "🌟" },
     { path: "/home", label: "Home", icon: "🏠" },
     { path: "/leaderboard", label: "Leaderboard", icon: "🏆" },
-    { path: "/participants", label: "Participants", icon: "👥" }
+    { path: "/participants", label: "Participants", icon: "👥" },
   ];
 
   return (
@@ -19,13 +19,17 @@ const Navigation: React.FC = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`tab tab-bordered pb-4 pt-4 text-base font-semibold transition-all duration-300 flex items-center gap-2 hover-lift ${location.pathname === item.path
+              className={`tab tab-bordered pb-4 pt-4 text-base font-semibold transition-all duration-300 flex items-center gap-2 hover-lift ${
+                location.pathname === item.path
                   ? "tab-active text-neutral border-primary border-b-4 gradient-text-primary"
                   : "text-neutral/60 hover:text-neutral hover:border-primary/50"
-                }`}
+              }`}
             >
-              <span className={`text-lg transition-transform duration-300 ${location.pathname === item.path ? "animate-bounce-slow" : "hover:scale-110"
-                }`}>
+              <span
+                className={`text-lg transition-transform duration-300 ${
+                  location.pathname === item.path ? "animate-bounce-slow" : "hover:scale-110"
+                }`}
+              >
                 {item.icon}
               </span>
               <span className="hidden sm:inline">{item.label}</span>

@@ -29,11 +29,7 @@ const ParticipantGrid: React.FC<ParticipantGridProps> = ({ participants }) => {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {participants.map((participant, index) => (
-          <ParticipantCard
-            key={participant.id}
-            participant={participant}
-            index={index}
-          />
+          <ParticipantCard key={participant.id} participant={participant} index={index} />
         ))}
       </div>
     </section>

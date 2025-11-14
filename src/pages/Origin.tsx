@@ -22,7 +22,12 @@ const Origin: React.FC = () => {
               {[
                 { to: "/home", label: "Home", icon: "🏠", variant: "btn-neutral" },
                 { to: "/leaderboard", label: "Leaderboard", icon: "🏆", variant: "btn-primary" },
-                { to: "/participants", label: "Participants", icon: "👥", variant: "btn-secondary" }
+                {
+                  to: "/participants",
+                  label: "Participants",
+                  icon: "👥",
+                  variant: "btn-secondary",
+                },
               ].map((item, index) => (
                 <Link
                   key={item.to}
@@ -63,21 +68,24 @@ const Origin: React.FC = () => {
               {
                 icon: "🔐",
                 title: "The Concept",
-                description: "When someone leaves their laptop unlocked and unattended, it's an opportunity for a friendly security reminder through \"toasting\" - a harmless action that highlights the importance of locking your device.",
-                gradient: "from-primary to-secondary"
+                description:
+                  'When someone leaves their laptop unlocked and unattended, it\'s an opportunity for a friendly security reminder through "toasting" - a harmless action that highlights the importance of locking your device.',
+                gradient: "from-primary to-secondary",
               },
               {
                 icon: "💡",
                 title: "Security Awareness",
-                description: "It's a fun way to promote cybersecurity best practices in the workplace. A gentle reminder that unlocked devices can be vulnerable to more serious security threats.",
-                gradient: "from-secondary to-accent"
+                description:
+                  "It's a fun way to promote cybersecurity best practices in the workplace. A gentle reminder that unlocked devices can be vulnerable to more serious security threats.",
+                gradient: "from-secondary to-accent",
               },
               {
                 icon: "🎉",
                 title: "Community Fun",
-                description: "Our toast app tracks these playful security reminders, creating a leaderboard of the most security-conscious (and sometimes forgetful) team members!",
-                gradient: "from-accent to-primary"
-              }
+                description:
+                  "Our toast app tracks these playful security reminders, creating a leaderboard of the most security-conscious (and sometimes forgetful) team members!",
+                gradient: "from-accent to-primary",
+              },
             ].map((card, index) => (
               <div
                 key={card.title}
@@ -86,16 +94,16 @@ const Origin: React.FC = () => {
               >
                 <div className="text-center">
                   <div className="flex justify-center mb-8">
-                    <div className={`p-6 bg-gradient-to-br ${card.gradient} rounded-2xl text-white text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 animate-float`}>
+                    <div
+                      className={`p-6 bg-gradient-to-br ${card.gradient} rounded-2xl text-white text-4xl shadow-lg group-hover:scale-110 transition-transform duration-300 animate-float`}
+                    >
                       {card.icon}
                     </div>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-neutral mb-6 group-hover:gradient-text-primary transition-all duration-300">
                     {card.title}
                   </h3>
-                  <p className="text-neutral/80 leading-relaxed text-lg">
-                    {card.description}
-                  </p>
+                  <p className="text-neutral/80 leading-relaxed text-lg">{card.description}</p>
                 </div>
               </div>
             ))}
@@ -109,8 +117,8 @@ const Origin: React.FC = () => {
                 Ready to Start Toasting?
               </h2>
               <p className="text-xl sm:text-2xl lg:text-3xl mb-12 leading-relaxed opacity-90">
-                Join our community and help promote better security practices through friendly pranks
-                and awareness!
+                Join our community and help promote better security practices through friendly
+                pranks and awareness!
               </p>
               <div className="flex gap-6 justify-center flex-wrap">
                 <Link

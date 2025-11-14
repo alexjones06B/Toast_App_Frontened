@@ -9,7 +9,9 @@ const Hero: React.FC = () => {
           <div className="animate-scale-in">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
               Welcome to Toast App!
-              <span className="block text-5xl sm:text-6xl lg:text-7xl mt-4 animate-bounce-slow">🍞</span>
+              <span className="block text-5xl sm:text-6xl lg:text-7xl mt-4 animate-bounce-slow">
+                🍞
+              </span>
             </h1>
           </div>
 

@@ -9,7 +9,7 @@ const RecentToasts: React.FC = () => {
       reason: "For leaving credentials in a public repository",
       icon: "🎉",
       timeAgo: "2 hours ago",
-      gradient: "from-primary to-secondary"
+      gradient: "from-primary to-secondary",
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const RecentToasts: React.FC = () => {
       reason: "For using 'password123' as a password",
       icon: "🔒",
       timeAgo: "5 hours ago",
-      gradient: "from-secondary to-accent"
+      gradient: "from-secondary to-accent",
     },
     {
       id: 3,
@@ -27,8 +27,8 @@ const RecentToasts: React.FC = () => {
       reason: "For clicking on a suspicious email link",
       icon: "📧",
       timeAgo: "1 day ago",
-      gradient: "from-accent to-primary"
-    }
+      gradient: "from-accent to-primary",
+    },
   ];
 
   return (
@@ -52,7 +52,9 @@ const RecentToasts: React.FC = () => {
           >
             <div className="card-body p-6 sm:p-8">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <div className={`text-5xl sm:text-6xl bg-gradient-to-br ${toast.gradient} rounded-2xl p-4 shadow-md group-hover:scale-110 transition-transform duration-300 animate-float`}>
+                <div
+                  className={`text-5xl sm:text-6xl bg-gradient-to-br ${toast.gradient} rounded-2xl p-4 shadow-md group-hover:scale-110 transition-transform duration-300 animate-float`}
+                >
                   {toast.icon}
                 </div>
 
@@ -86,7 +88,10 @@ const RecentToasts: React.FC = () => {
       </div>
 
       <div className="text-center mt-12">
-        <button className="btn btn-outline btn-lg hover:btn-neutral transition-all duration-300 group">
+        <button
+          type="button"
+          className="btn btn-outline btn-lg hover:btn-neutral transition-all duration-300 group"
+        >
           <span className="group-hover:scale-110 transition-transform">👀</span>
           View All Toasts
         </button>

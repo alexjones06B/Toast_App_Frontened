@@ -122,7 +122,11 @@ const Participants: React.FC = () => {
             <div className="stat-value text-3xl sm:text-4xl lg:text-5xl gradient-text-full mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center gap-2">
               <span className="animate-pulse-glow">🎯</span>
               <span className="truncate">
-                {mockParticipants.reduce((max, p) => p.totalToasts > max.totalToasts ? p : max).name.split(' ')[0]}
+                {
+                  mockParticipants
+                    .reduce((max, p) => (p.totalToasts > max.totalToasts ? p : max))
+                    .name.split(" ")[0]
+                }
               </span>
             </div>
             <div className="stat-title text-lg uppercase tracking-widest font-semibold text-neutral/80">
@@ -195,10 +199,11 @@ const Participants: React.FC = () => {
                 {/* Join Date */}
                 <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl p-3 text-center">
                   <div className="text-sm font-semibold text-neutral mb-1">
-                    Joined {new Date(participant.joinDate).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric'
+                    Joined{" "}
+                    {new Date(participant.joinDate).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
                     })}
                   </div>
                   <div className="text-xs text-neutral/60 uppercase tracking-wide">
@@ -209,7 +214,7 @@ const Participants: React.FC = () => {
                 {/* Activity Indicator */}
                 <div className="flex items-center justify-center gap-2 pt-2">
                   <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                     Active
                   </div>
                   {participant.totalToasts > 10 && (

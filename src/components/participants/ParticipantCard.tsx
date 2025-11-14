@@ -39,18 +39,14 @@ const ParticipantCard: React.FC<ParticipantCardProps> = ({ participant, index = 
       <div className="flex-grow space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-3 text-center">
-            <div className="text-2xl font-bold text-primary mb-1">
-              {participant.totalToasts}
-            </div>
+            <div className="text-2xl font-bold text-primary mb-1">{participant.totalToasts}</div>
             <div className="text-xs text-neutral/70 font-semibold uppercase tracking-wide">
               Toasts Sent
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl p-3 text-center">
-            <div className="text-2xl font-bold text-secondary mb-1">
-              {participant.timesToasted}
-            </div>
+            <div className="text-2xl font-bold text-secondary mb-1">{participant.timesToasted}</div>
             <div className="text-xs text-neutral/70 font-semibold uppercase tracking-wide">
               Times Toasted
             </div>
@@ -60,21 +56,20 @@ const ParticipantCard: React.FC<ParticipantCardProps> = ({ participant, index = 
         {/* Join Date */}
         <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl p-3 text-center">
           <div className="text-sm font-semibold text-neutral mb-1">
-            Joined {new Date(participant.joinDate).toLocaleDateString('en-US', {
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric'
+            Joined{" "}
+            {new Date(participant.joinDate).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
             })}
           </div>
-          <div className="text-xs text-neutral/60 uppercase tracking-wide">
-            Member Since
-          </div>
+          <div className="text-xs text-neutral/60 uppercase tracking-wide">Member Since</div>
         </div>
 
         {/* Activity Indicator */}
         <div className="flex items-center justify-center gap-2 pt-2">
           <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             Active
           </div>
           {isTopContributor && (
