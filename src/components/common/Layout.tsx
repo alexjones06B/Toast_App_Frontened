@@ -23,7 +23,7 @@ const Layout: React.FC = () => {
             Making security awareness fun and engaging since 2024
           </p>
           <div className="mt-6 text-sm opacity-75">
-            <p>&copy; 2024 Toast App. All rights reserved.</p>
+            <p>&copy; 2025 Toast App. All rights reserved.</p>
           </div>
         </div>
       </footer>
