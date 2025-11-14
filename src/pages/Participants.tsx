@@ -62,77 +62,167 @@ const Participants: React.FC = () => {
   const totalToasts = mockParticipants.reduce((sum, p) => sum + p.totalToasts, 0);
 
   return (
-    <div className="participants-page">
-      <div className="participants-header">
-        <h1 className="page-title">Participants</h1>
-        <p className="page-description">
+    <div className="space-y-professional-lg w-full animate-fade-in">
+      {/* Header Section */}
+      <section className="text-center animate-slide-in-up">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text-primary mb-6 leading-tight">
+          Participants
+        </h1>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <span className="text-3xl animate-bounce-slow">👥</span>
+          <span className="text-xl text-neutral/60">Toast App community members</span>
+        </div>
+        <p className="text-lg sm:text-xl text-neutral/80 mb-8 max-w-3xl mx-auto leading-relaxed">
           Manage and view all participants in the Toast App community.
         </p>
         <button
           type="button"
-          className="btn btn-primary add-participant-btn"
+          className="btn btn-primary btn-lg shadow-toast hover:shadow-toast-hover hover:-translate-y-2 transition-all duration-300 text-lg group"
           onClick={handleAddParticipant}
         >
-          ➕ Add Participant
+          <span className="group-hover:scale-110 transition-transform">➕</span>
+          Add Participant
         </button>
-      </div>
+      </section>
 
-      <div className="participants-stats">
-        <div className="stats-grid">
-          <div className="stat-card">
-            <div className="stat-value">{mockParticipants.length}</div>
-            <div className="stat-label">Total Participants</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-value">{totalToasts}</div>
-            <div className="stat-label">Total Times Toasted</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-value">{totalToasts}</div>
-            <div className="stat-label">Total toasts</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-value" style={{ fontSize: "1.5rem" }}>
-              {
-                mockParticipants.find(
-                  (p) => p.timesToasted === Math.max(...mockParticipants.map((p) => p.timesToasted))
-                )?.name
-              }
+      {/* Stats Section */}
+      <section className="content-area animate-slide-in-up animate-delay-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="stat bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 text-center border border-primary/10 group">
+            <div className="stat-value text-5xl sm:text-6xl lg:text-7xl gradient-text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+              {mockParticipants.length}
             </div>
-            <div className="stat-label">Most Toasted</div>
+            <div className="stat-title text-lg uppercase tracking-widest font-semibold text-neutral/80">
+              Total Participants
+            </div>
+            <div className="mt-2 text-sm text-neutral/60">
+              <span className="inline-flex items-center gap-1">
+                <span className="text-green-500">👤</span>
+                <span>Active members</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="stat bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 text-center border border-secondary/10 group">
+            <div className="stat-value text-5xl sm:text-6xl lg:text-7xl gradient-text-secondary mb-4 group-hover:scale-110 transition-transform duration-300">
+              {totalToasts}
+            </div>
+            <div className="stat-title text-lg uppercase tracking-widest font-semibold text-neutral/80">
+              Total Toasts
+            </div>
+            <div className="mt-2 text-sm text-neutral/60">
+              <span className="inline-flex items-center gap-1">
+                <span className="text-orange-500">🍞</span>
+                <span>Sent by community</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="stat bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 text-center border border-accent/10 group">
+            <div className="stat-value text-3xl sm:text-4xl lg:text-5xl gradient-text-full mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center gap-2">
+              <span className="animate-pulse-glow">🎯</span>
+              <span className="truncate">
+                {mockParticipants.reduce((max, p) => p.totalToasts > max.totalToasts ? p : max).name.split(' ')[0]}
+              </span>
+            </div>
+            <div className="stat-title text-lg uppercase tracking-widest font-semibold text-neutral/80">
+              Most Active
+            </div>
+            <div className="mt-2 text-sm text-neutral/60">
+              <span className="inline-flex items-center gap-1">
+                <span className="text-yellow-500">🏆</span>
+                <span>Top contributor</span>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="participants-list-section">
-        <h2 className="section-title">All Participants</h2>
-        <div className="participants-grid">
-          {mockParticipants.map((participant) => (
-            <div key={participant.id} className="participant-card">
-              <div className="participant-info">
-                <h3 className="participant-name">{participant.name}</h3>
-                <p className="participant-email">{participant.email}</p>
-                <div className="participant-stats">
-                  <div className="participant-stat">
-                    <span className="stat-value-small">{participant.totalToasts}</span>
-                    <span className="stat-label-small">Toasts Sent</span>
+      {/* Participants List Section */}
+      <section className="animate-slide-in-up animate-delay-400">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-secondary mb-4">
+            All Participants
+          </h2>
+          <div className="flex items-center justify-center gap-2 text-xl">
+            <span className="animate-bounce-slow">📋</span>
+            <span className="text-neutral/60">Community directory</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {mockParticipants.map((participant, index) => (
+            <div
+              key={participant.id}
+              className="content-area hover-lift group min-h-[320px] flex flex-col animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {/* Header Section */}
+              <div className="text-center mb-6 flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mx-auto mb-4 flex items-center justify-center text-xl font-bold text-white shadow-md group-hover:scale-110 transition-transform duration-300 animate-float">
+                  {participant.name.charAt(0)}
+                </div>
+                <h3 className="text-xl font-bold text-neutral mb-2 group-hover:gradient-text-primary transition-all duration-300 leading-tight">
+                  {participant.name}
+                </h3>
+                <p className="text-sm text-neutral/60 truncate px-2" title={participant.email}>
+                  {participant.email}
+                </p>
+              </div>
+
+              {/* Stats Section */}
+              <div className="flex-grow space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-3 text-center">
+                    <div className="text-2xl font-bold text-primary mb-1">
+                      {participant.totalToasts}
+                    </div>
+                    <div className="text-xs text-neutral/70 font-semibold uppercase tracking-wide">
+                      Toasts Sent
+                    </div>
                   </div>
-                  <div className="participant-stat">
-                    <span className="stat-value-small">{participant.timesToasted}</span>
-                    <span className="stat-label-small">Times Toasted</span>
+
+                  <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl p-3 text-center">
+                    <div className="text-2xl font-bold text-secondary mb-1">
+                      {participant.timesToasted}
+                    </div>
+                    <div className="text-xs text-neutral/70 font-semibold uppercase tracking-wide">
+                      Times Toasted
+                    </div>
                   </div>
-                  <div className="participant-stat">
-                    <span className="stat-value-small">
-                      {new Date(participant.joinDate).toLocaleDateString()}
-                    </span>
-                    <span className="stat-label-small">Joined</span>
+                </div>
+
+                {/* Join Date */}
+                <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl p-3 text-center">
+                  <div className="text-sm font-semibold text-neutral mb-1">
+                    Joined {new Date(participant.joinDate).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric'
+                    })}
                   </div>
+                  <div className="text-xs text-neutral/60 uppercase tracking-wide">
+                    Member Since
+                  </div>
+                </div>
+
+                {/* Activity Indicator */}
+                <div className="flex items-center justify-center gap-2 pt-2">
+                  <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Active
+                  </div>
+                  {participant.totalToasts > 10 && (
+                    <div className="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold">
+                      🔥 Top Contributor
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };
